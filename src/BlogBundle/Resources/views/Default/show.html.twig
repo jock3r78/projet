@@ -1,0 +1,76 @@
+{% extends("::layout/layout-show.html.twig") %}
+
+{% block body %}
+    <!-- content -->
+
+    {%  if post.published == true %}
+
+        <div class="container">
+            <div class="content">
+                <a href="{{ path('post_show', {id: post.id}) }}"><img src="{{ post.photo }}" class="img-responsive" alt="" /></a>
+                <i class="aeroplane"> </i>
+                <div class="travelling">
+                    <div class="col-md-10 travelling1">
+                        <h1><a href="{{ path('post_show', {id: post.id}) }}">{{ post.name }}</a></h1>
+                        <h2>Episode :  {{ post.episode }}</h2>
+                        <h5>Ecrit par {{ post.user.username }},  Publié le: {{ post.createdAt|date("m/d/Y") }}</h5>
+                    </div>
+                    <div class="col-md-1 travelling2">
+                    </div>
+                    <div class="clearfix"> </div>
+                    <p>{{ post.content|raw }}</p>
+                    <!-- comments -->
+                    <div class="comments">
+                        <h2>Vos Commentaires</h2>
+                        <div class="clearfix"> </div>
+                        <hr>
+                        <!-- comments write -->
+                        <h4>Ecrire un commentaire</h4>
+                        <div class="col-md-6 contact">
+
+
+                            {{ form_start(form) }}
+                            {{ form_errors(form) }}
+
+
+                            {{ form_label(form.username, "Nom:") }}
+
+                            {{ form_errors(form.username) }}
+
+                            {{ form_widget(form.username) }}
+
+
+                            {{ form_label(form.content, " Votre Commentaire:") }}
+
+                            {{ form_errors(form.content) }}
+
+                            {{ form_widget(form.content) }}
+                            <br>
+                            <div class="button">
+
+                                {{ form_widget(form.submit) }}
+                            </div>
+
+                            {{ form_rest(form) }}
+                            {{ form_end(form) }}
+
+
+                        </div>
+                        <div class="clearfix"> </div>
+
+                    </div>
+                </div>
+                <!-- comments view-->
+                <div class="catagerious">
+                    {% import "BlogBundle:Default:macro.html.twig" as macros %}
+
+                    {{ macros.comments(comments) }}
+
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <!-- content -->
+
+{% endblock %}

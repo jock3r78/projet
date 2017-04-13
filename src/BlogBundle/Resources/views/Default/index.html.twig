@@ -1,0 +1,50 @@
+{% extends("::layout/layout-home.html.twig") %}
+
+{% block body %}
+{% for post in posts %}
+{%  if post.published == true %}
+    <!-- content -->
+    <div class="container">
+        <div class="content">
+            <div class="travelling">
+                <div class="col-md-10 travelling1">
+                    <h1><a href="{{ path('post_show', {id: post.id}) }}">{{ post.name }}</a></h1>
+                    <h2>Episode :  {{ post.episode }}</h2>
+                    <h5>Ecrit par : <a href="#">{{ post.user.username }}</a></h5>
+                    <br>
+
+                    <img src="{{ post.photoresume }}" alt="" class="img-responsive"/>
+                    <br>
+                    <hr>
+                    <p>{{ post.content|truncate(100)|raw  }}....</p>
+                    <br>
+                    <h5>Publié le: {{ post.createdAt|date("m/d/Y") }}</h5>
+                </div>
+                <div class="col-md-1 travelling2">
+                </div>
+                <div class="clearfix"></div>
+
+
+
+            <div class="lequotes">
+
+                <div class="col-md-12">
+                    <a class="more" href="{{ path('post_show', {id: post.id}) }}">Lire la suite</a>
+                </div>
+            </div>
+
+
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endfor %}
+
+<!-- content -->
+<!-- Pager -->
+<div class="text-center">
+        {{ knp_pagination_render(posts) }}
+</div>
+{% endblock %}
+
+
