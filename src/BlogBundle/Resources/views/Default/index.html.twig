@@ -1,50 +1,49 @@
 {% extends("::layout/layout-home.html.twig") %}
 
 {% block body %}
-{% for post in posts %}
-{%  if post.published == true %}
-    <!-- content -->
-    <div class="container">
-        <div class="content">
-            <div class="travelling">
-                <div class="col-md-10 travelling1">
-                    <h1><a href="{{ path('post_show', {id: post.id}) }}">{{ post.name }}</a></h1>
-                    <h2>Episode :  {{ post.episode }}</h2>
-                    <h5>Ecrit par : <a href="#">{{ post.user.username }}</a></h5>
-                    <br>
+    <div class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
+        <marquee scrollAmount="3"> <strong>ALERTE !  Flash info</strong></marquee>
+    </div>
 
-                    <img src="{{ post.photoresume }}" alt="" class="img-responsive"/>
-                    <br>
-                    <hr>
-                    <p>{{ post.content|truncate(100)|raw  }}....</p>
-                    <br>
-                    <h5>Publié le: {{ post.createdAt|date("m/d/Y") }}</h5>
-                </div>
-                <div class="col-md-1 travelling2">
-                </div>
-                <div class="clearfix"></div>
-
-
-
-            <div class="lequotes">
-
-                <div class="col-md-12">
-                    <a class="more" href="{{ path('post_show', {id: post.id}) }}">Lire la suite</a>
-                </div>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">INCIDENTS PERES</a>
+                </h4>
             </div>
-
-
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">KD UTILES</a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">NOUVEAUX KD</a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
             </div>
         </div>
     </div>
-{% endif %}
-{% endfor %}
-
-<!-- content -->
-<!-- Pager -->
-<div class="text-center">
-        {{ knp_pagination_render(posts) }}
-</div>
 {% endblock %}
 
 

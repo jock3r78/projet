@@ -1,98 +1,50 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-    <title>Jean Forteroche</title>
-    <link href="{{ asset('global/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all">
-    <link href="{{ asset('global/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,800,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <script src="{{ asset('global/js/jquery.min.js')}}"></script>
+    <title>HELPDESK</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ asset('global/css/bootstrap.min.css') }}">
+    <script src="{{ asset('global/js/jquery.js') }}"></script>
+    <script src="{{ asset('global/js/bootstrap.js') }}"></script>
+    <script>
+        <!--
+        function timedRefresh(timeoutPeriod) {
+            setTimeout("location.reload(true);",timeoutPeriod);
+        }
+
+        window.onload = timedRefresh(120000);
+
+        //   -->
+    </script>
 </head>
 <body>
-<!-- header -->
-<div class="banner">
-    <div class="container">
-        <div class="logo">
-            <h1 class="titre">Jean Forteroche</h1>
-            <br>
-            <h2 class="soustitre">Billet simple pour l'Alaska</h2>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
         </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
     </div>
-    <div class="header-bottom">
-        <div class="container">
-            <div class="head-nav">
-                <span class="menu"> </span>
-                <ul>
-                    <li class="active"><a href="{{ path('post_index') }}">Accueil</a></li>
-                    <li><a href="{{ path('about') }}">A propos de l'auteur</a></li>
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <li><a href="{{ path('admin_show') }}"><i class="fa fa-lock"></i> Panneau </a></li> /
-                    <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
-                    {% else %}
-                    <li><a href="{{ path('fos_user_security_login') }}">Connexion </a></li>
-                    {% endif %}
-                    <div class="clearfix"> </div>
-                </ul>
-            </div>
-            <!-- script-for-nav -->
-            <script>
-                $( "span.menu" ).click(function() {
-                    $( ".head-nav ul" ).slideToggle(300, function() {
-                        // Animation complete.
-                    });
-                });
-            </script>
-            <!-- script-for-nav -->
-            <div class="clearfix"> </div>
-        </div>
-    </div>
+</nav>
+<div class="jumbotron text-center">
+    <h1>HELPDESK</h1>
+    <p>Portail de Connaissance</p>
 </div>
-<!-- header -->
-<!-- Content-->
-<div class="container">
-<br>
-    {% for flash_message in app.session.flashBag.get('report') %}
-        <div class="clearfix"> </div>
-        <div class="flash-report alert alert-danger alert-dismissable">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            {{ flash_message }}
-        </div>
-    {% endfor %}
-    {% for flash_message in app.session.flashBag.get('success') %}
-        <div class="clearfix"> </div>
-        <div class="flash-success alert alert-success alert-dismissable">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            {{ flash_message }}
-        </div>
-    {% endfor %}
-    {% for flash_message in app.session.flashBag.get('error') %}
-        <div class="clearfix"> </div>
-        <div class="flash-success alert alert-success alert-dismissable">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            {{ flash_message }}
-        </div>
-    {% endfor %}
+
+
 {% block body %}
 
 {% endblock %}
 
-</div>
-<!-- content -->
-<!-- footer -->
-<div class="footer">
-    <div class="container">
-        <p>Conception par  <a href="http://jonathancassara.fr" target="_blank"> JonathanCassara.fr</a></p>
-        <div class="social">
-            <ul>
-                <li><a href="#"><i class="fb"> </i></a> </li>
-                <li><a href="#"><i class="twt"> </i></a> </li>
-                <div class="clearfix"></div>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- footer -->
+
+
 </body>
 </html>
