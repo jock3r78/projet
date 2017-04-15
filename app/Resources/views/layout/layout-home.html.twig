@@ -25,17 +25,17 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
+            <li><a href="#">Nouveauté</a></li>
+            <li><a href="#">Vidéo Formation</a></li>
+            <li><a href="#">Version logiciel</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
     </div>
 </nav>
 <div class="jumbotron text-center">
-    <h1>HELPDESK</h1>
+    <h1 data-toggle="modal" data-target="#myModal">HELPDESK</h1>
     <p>Portail de Connaissance</p>
 </div>
 
@@ -44,7 +44,27 @@
 
 {% endblock %}
 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Crédit</h4>
+            </div>
+            <div class="modal-body">
+                <p>Chef Projet : JonathanCassara.fr</p>
+                <p>Version : Avril 2017 : Update 13/04/2017</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 </body>
 </html>
