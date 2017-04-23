@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('global/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('global/css/style.css') }}">
     <script src="{{ asset('global/js/jquery.js') }}"></script>
     <script src="{{ asset('global/js/bootstrap.js') }}"></script>
     <script>
@@ -24,10 +25,10 @@
         <div class="navbar-header">
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="{{ path('index') }}">Home</a></li>
             <li><a href="#">Nouveauté</a></li>
             <li><a href="#">Vidéo Formation</a></li>
-            <li><a href="#">Version logiciel</a></li>
+            <li><a href="{{ path('software') }}">Version logiciel</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

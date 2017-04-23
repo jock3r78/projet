@@ -49,4 +49,16 @@ class IndexController extends Controller
         ));
     }
 
+    /**
+     * software.
+     *
+     * @Route("/software", name="software")
+     * @Method("GET")
+     */
+    public function aboutAction()
+    {
+        return $this->render('BlogBundle:Default:Software.html.twig');
+    }
+
+
 }
